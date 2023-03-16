@@ -1,0 +1,40 @@
+[theme]
+name = "modern"
+[theme.overrides]
+idle_bg = "#1c1c1c"
+idle_fg = "#e4e4e4"
+[icons]
+name = "awesome"
+
+[[block]]
+block = "custom"
+command = "curl ifconfig.io"
+
+#[[block]]
+#block = "custom"
+#command = "curl 'wttr.in/Minsk?format=1'"
+#on_click = "xdg-open 'https://wttr.in/'"
+
+[[block]]
+block = "custom"
+command = "echo -n 'YD:'; yandex-disk status | head -n 1 | cut -d ':' -f 2"
+#on_click = "~/.scripts/yandex_disk_status.sh"
+on_click = "xdg-open 'https://disk.yandex.ru/client/disk'"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "net"
+device = "wlp1s0"
+format = ""
+
+[[block]]
+block = "time"
+interval = 60
+format = "%R   %a %d %b"
+
+[[block]]
+block = "custom"
+command = "~/.scripts/layout.sh"
+interval = 1

@@ -1,0 +1,83 @@
+ conky.config = {
+    alignment =  'middle_right',
+    maximum_width = 280,
+    border_width = 0,
+    font = 'Terminus:size=12',
+    gap_x = 20,
+    gap_y = 0,
+
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type =  'override',
+    own_window_transparent = true,
+
+    double_buffer = yes,
+    background = true,
+    use_xft = true,
+    update_interval = 1.0,
+    total_run_times = 0,
+    double_buffer = true,
+    draw_shades = true,
+    draw_outline = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    no_buffers = true,
+    cpu_avg_samples = 2,
+    override_utf8_locale = true,
+    use_spacer =  'right'
+}
+
+conky.text = [[
+${font Terminus:size=14}${color #756969}$nodename ${hr 2} ${alignr}${font}$color
+
+#${offset 20}$alignr${font 'Noto Color Emoji Regular':size=10}${execpi 3600 curl -s "wttr.in/Minsk?format=3"}${font}
+${offset 20}Uptime:$alignr$uptime
+${offset 20}Load:$alignr$loadavg
+
+${offset 20}Repo:$alignr${execpi 3600 checkupdates | awk 'END { print (NR == 0 ? "up to date" : NR " package" (NR > 1 ? "s" : "")); }'}
+${offset 20}AUR:$alignr${execpi 3600 checkupdates-aur | awk 'END { print (NR == 0 ? "up to date" : NR " package" (NR > 1 ? "s" : "")); }'}
+${font Terminus:size=12}${color #756969}CPU ${hr 2} ${alignr}${font}$color
+
+${offset 20}${cpugraph cpu0}
+
+${offset 20}${top name 1}$alignr${top cpu 1}%
+${offset 20}${top name 2}$alignr${top cpu 2}%
+${offset 20}${top name 3}$alignr${top cpu 3}%
+${offset 20}${top name 4}$alignr${top cpu 4}%
+${offset 20}${top name 5}$alignr${top cpu 5}%
+${offset 20}${top name 6}$alignr${top cpu 6}%
+${offset 20}${top name 7}$alignr${top cpu 7}%
+${offset 20}${top name 8}$alignr${top cpu 8}%
+${offset 20}${top name 9}$alignr${top cpu 9}%
+${offset 20}${top name 10}$alignr${top cpu 10}%
+
+${font Terminus:size=12}${color #756969}Memory ${hr 2} ${alignr}${font}$color
+
+${offset 20}$mem / $memmax $alignr $memperc%
+${offset 20}$membar
+
+${offset 20}${top_mem name 1}$alignr${top_mem mem 1}%
+${offset 20}${top_mem name 2}$alignr${top_mem mem 2}%
+${offset 20}${top_mem name 3}$alignr${top_mem mem 3}%
+${offset 20}${top_mem name 4}$alignr${top_mem mem 4}%
+${offset 20}${top_mem name 5}$alignr${top_mem mem 5}%
+${offset 20}${top_mem name 6}$alignr${top_mem mem 6}%
+${offset 20}${top_mem name 7}$alignr${top_mem mem 7}%
+${offset 20}${top_mem name 8}$alignr${top_mem mem 8}%
+${offset 20}${top_mem name 9}$alignr${top_mem mem 9}%
+${offset 20}${top_mem name 10}$alignr${top_mem mem 10}%
+
+${font Terminus:size=12}${color #756969}Storage ${hr 2} ${alignr}${font}$color
+
+${offset 20}/  ${offset 18} ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${offset 20}${fs_bar /}
+
+${color #756969}${if_up wlo1}wlo1 (${addr wlo1}) ${hr 2}$color
+${offset 20}${color white}$color ${downspeed wlo1}${alignr}${color white}$color ${upspeed wlo1}
+${offset 20}${downspeedgraph wlo1 25,100} ${alignr}${upspeedgraph wlo1 25,100}$color${endif}
+${color #756969}${if_up wlp1s0}wlp1s0 (${addr wlp1s0}) ${hr 2}$color
+
+${offset 20}${color white}$color ${downspeed wlp1s0 }${alignr}${color white}$color ${upspeed wlp1s0}
+${offset 20}${downspeedgraph wlp1s0 25,100} ${alignr}${upspeedgraph wlp1s0 25,100}$color${endif}
+#${offset 20}%Util:$alignr${execpi 60 nicstat 1 1 | grep enp | awk '{ print $9 }'}
+]]
