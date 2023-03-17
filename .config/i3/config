@@ -53,11 +53,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# Alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# Resize window
+bindsym $mod+Left resize shrink width 5 px or 5 ppt
+bindsym $mod+Down resize grow height 5 px or 5 ppt
+bindsym $mod+Up resize shrink height 5 px or 5 ppt
+bindsym $mod+Right resize grow width 5 px or 5 ppt
 
 # Move focused window
 bindsym $mod+Shift+h move left 40
@@ -99,8 +99,12 @@ bindsym $mod+a focus parent
 # Focus the child container
 bindsym $mod+Shift+a focus child
 
+# Focus urgent
+bindsym $mod+o [urgent=latest] focus
+
 # Back forth jumping
 bindsym $mod+slash workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -113,19 +117,6 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-
-set $monitor1 "HDMI-2"
-set $monitor2 "HDMI-1"
-
-workspace $ws1 output $monitor1
-workspace $ws2 output $monitor2
-workspace $ws3 output $monitor1
-workspace $ws4 output $monitor2
-workspace $ws5 output $monitor1
-workspace $ws6 output $monitor2
-workspace $ws7 output $monitor1
-workspace $ws8 output $monitor2
-workspace $ws9 output $monitor1
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -270,7 +261,7 @@ bar {
 
 # Make the following  apps act as toggable scratchpad windows
 #bindsym F1 [instance="toggleable"] scratchpad show, resize set 2560 1080, move absolute position center
-bindsym F1 [instance="Alacritty"] scratchpad show, resize set 1920 1060, move position center
+#bindsym F1 [instance="Alacritty"] scratchpad show, resize set 1920 1060, move position center
 bindsym F2 [instance="obsidian"] scratchpad show, resize set 1920 1060, move position center
 bindsym F3 [class="GoldenDict"] scratchpad show
 bindsym F4 [class="Spotify"] scratchpad show, resize set 2560 1080, move absolute position center
@@ -314,12 +305,13 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [title="Open With"] floating enable
 
-# Set a wallpaper
-exec --no-startup-id "feh --bg-fill ~/pictures/wallpaper.png"
 
+# Set a wallpaper
+#exec --no-startup-id "feh --bg-fill ~/pictures/wallpaper.png"
+include ~/.config/i3/`hostname`.conf
 # Autostart
 exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id goldendict
+#exec --no-startup-id goldendict
 exec --no-startup-id "numlockx on"
 exec --no-startup-id conky
 exec --no-startup-id redshift-gtk -l 54.65:29.13 -t 4200:3700
@@ -328,13 +320,11 @@ exec --no-startup-id unclutter -b
 exec --no-startup-id xset s off
 exec --no-startup-id picom -b
 # exec --no-startup-id "~/.config/i3/load_layout.sh "
-exec --no-startup-id ~/alacritty.sh
+#exec --no-startup-id ~/alacritty.sh
 exec --no-startup-id firefox
 exec --no-startup-id dunst
 exec --no-startup-id yandex-disk start
 exec --no-startup-id antimicroX --hidden
-exec --no-startup-id blueman-applet
 # The following line ensures that dunst is not disabled by i3_toggle_work_mode.sh
 exec --no-startup-id dunstctl set-paused false
-exec_always --no-startup-id ~/.scripts/auto_scratchpad.py True,,,toggleable,,
-exec --no-startup-id xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+#exec_always --no-startup-id ~/.scripts/auto_scratchpad.py True,,,toggleable,,
