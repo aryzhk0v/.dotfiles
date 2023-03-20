@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=tmux (attach session)
+GenericName=tmux attach to a session
+Icon=utilities-terminal
+Comment=Attach to a session
+Exec=sh -c "$HOME/.scripts/tmux_attach_to_session.sh"
+Terminal=false
+Type=Application
+Keywords=Terminal;multiplexer;
+Categories=Utility;TerminalMultiplexer;
+StartupNotify=false

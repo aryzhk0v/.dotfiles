@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=tmux (create session)
+GenericName=Create a session of tmux
+Icon=utilities-terminal
+Comment=Create a session of tmux
+Exec=sh -c "$HOME/.scripts/tmux_create_session.sh"
+Terminal=false
+Type=Application
+Keywords=Terminal;multiplexer;
+Categories=Utility;TerminalMultiplexer;
+StartupNotify=false
