@@ -23,11 +23,13 @@ on_click = "xdg-open 'https://disk.yandex.ru/client/disk'"
 
 [[block]]
 block = "sound"
+on_click = "/usr/bin/pavucontrol"
 
 [[block]]
 block = "net"
 device = "wlp1s0"
 format = ""
+on_click = "alacritty -e 'nmtui'"
 
 [[block]]
 block = "time"
