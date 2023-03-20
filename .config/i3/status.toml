@@ -33,6 +33,8 @@ format = ""
 block = "time"
 interval = 60
 format = "%R   %a %d %b"
+on_click = "xdg-open 'https://calendar.google.com/calendar/u/0/r'"
+
 
 [[block]]
 block = "custom"

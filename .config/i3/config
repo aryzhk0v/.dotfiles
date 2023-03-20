@@ -182,8 +182,7 @@ bindsym $mod+r mode "resize"
 
 # Upon enabling disables keybindings to pass all keyboard events to current application
 mode "pass-through" {
-        bindsym $mod+v mode "default"
-        bindsym $mod+Escape mode "default"
+        bindsym Escape mode "default"
 }
 bindsym $mod+v mode "pass-through"
 bindsym $mod+Escape mode "pass-through"
@@ -332,7 +331,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id firefox
 exec --no-startup-id dunst
 exec --no-startup-id yandex-disk start
-exec --no-startup-id antimicroX --hidden
+#exec --no-startup-id antimicroX --hidden
 # The following line ensures that dunst is not disabled by i3_toggle_work_mode.sh
 exec --no-startup-id dunstctl set-paused false
 #exec_always --no-startup-id ~/.scripts/auto_scratchpad.py True,,,toggleable,,
