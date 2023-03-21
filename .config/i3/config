@@ -334,4 +334,5 @@ exec --no-startup-id yandex-disk start
 #exec --no-startup-id antimicroX --hidden
 # The following line ensures that dunst is not disabled by i3_toggle_work_mode.sh
 exec --no-startup-id dunstctl set-paused false
+exec --no-startup-id nm-applet
 #exec_always --no-startup-id ~/.scripts/auto_scratchpad.py True,,,toggleable,,
