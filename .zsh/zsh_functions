@@ -1,0 +1,105 @@
+ss() {
+        #enable passing options
+        while getopts ":v" opt; do
+                case ${opt} in
+                        v) #verbose
+                                ssh -vvv -A `grep -i 'host ' ~/.ssh/config | awk '{print $2}' | fzf`
+                                ;;
+                esac
+        done
+        if [ $OPTIND -eq 1 ]; then
+                HOST=$(grep 'Host ' ~/.ssh/config | awk '{print $2}' | fzf)
+                #change tmux windowname to hostname of current machine we connected to
+                if [ "z" != "z$TMUX" ]; then
+                        tmux rename-window $HOST
+                fi
+                ssh -A $HOST 2>/dev/null
+                if [ "z" != "z$TMUX" ]; then
+                        tmux rename-window $(hostname)
+                fi
+        fi
+}
+
+sf() {
+    sftp `grep 'Host ' ~/.ssh/config | awk '{print $2}' | fzf` 2>/dev/null
+}
+
+.df() {
+    if [[ -z "$1" ]]; then
+        exclude='.config/ranger/plugins/__|.vim/spell'
+        file_to_edit="$(/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-tree --full-tree --name-only -r HEAD | grep -E -v $exclude | fzf)"
+        result=$?
+        if [ $result -eq 0 ]; then
+             $EDITOR $HOME/$file_to_edit
+        fi
+    else
+        /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
+    fi
+}
+
+ssh-copy-idr() {
+        [ -n "$2" ] && ssh-keyscan $1 -p$2 &>/dev/null || ssh-keyscan $1 &>/dev/null
+        [ -n "$2" ] && ssh-copy-id -i ~/.ssh/id_rsa.pub root@$1 -p$2 || ssh-copy-id -i ~/.ssh/id_rsa.pub root@$1
+}
+
+cdw() {
+        cd ~/sync/yandex-disk/work/$(ls -ar ~/sync/yandex-disk/work | grep -E '[0-9]{4}-[0-9]{2}-[0-9]{2}' | head -n 1)
+}
+
+myip() {
+    IP=$(curl ifconfig.io 2>/dev/null)
+    echo "Current IP: $IP"
+
+}
+
+wpc() {
+    warp-cli connect > /dev/null 2>&1
+    sleep 5
+    yandex-disk stop > /dev/null 2>&1  && yandex-disk start > /dev/null 2>&1
+    myip
+}
+
+wpd() {
+    warp-cli disconnect > /dev/null 2>&1
+    sleep 5
+    yandex-disk stop > /dev/null 2>&1 && yandex-disk start > /dev/null 2>&1
+    myip
+}
+
+ta() {
+    if [ $# -eq 0 ]; then
+        echo ".zsh_functions ta(): Specify a tmux session name to attach to"
+    elif [ $# -eq 1 ]; then
+        #$MYTERM -e "tmux attach -t $1"
+        tmux attach -t $1
+    else
+        echo ".zsh_functions ta(): Too many arguments"
+    fi
+}
+
+#change tmux windowname to hostname of current machine we connected to
+if [ "z" != "z$TMUX" ]; then
+  function ssh_tmux
+  {
+    tmux rename-window $1
+    ssh -q "$@"
+    tmux rename-window `hostname`
+  }
+  alias ssh='ssh_tmux'
+else
+  alias ssh='ssh -q'
+fi
+
+fkill () {
+	local pid
+	if [ "$UID" != "0" ]
+	then
+		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	else
+		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+	fi
+	if [ "x$pid" != "x" ]
+	then
+		echo $pid | xargs kill -${1:-9}
+	fi
+}

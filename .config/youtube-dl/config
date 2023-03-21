@@ -1,0 +1,13 @@
+## video options
+-f bestvideo[vcodec^=av01]+bestaudio[ext=webm]/bestvideo[vcodec^=av01]+bestaudio/bestvideo[ext=webm]+bestaudio[ext=webm]/bestvideo[ext=webm]+bestaudio/bestvideo+bestaudio[ext=webm]/bestvideo+bestaudio/best
+--merge-output-format mkv # merge separate audio and video into mkv
+--prefer-free-formats
+## subtitle options
+--sub-format best
+--sub-lang en
+--write-sub
+--embed-subs
+--add-metadata
+## misc options
+-o '%(upload_date)s-%(title)s-%(id)s.%(ext)s' # i.e. 20190131-video_title-_ABfKnxOSCE.mkv
+--hls-prefer-native
