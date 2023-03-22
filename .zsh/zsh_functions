@@ -8,12 +8,12 @@ ss() {
                 esac
         done
         if [ $OPTIND -eq 1 ]; then
-                HOST=$(grep 'Host ' ~/.ssh/config | awk '{print $2}' | fzf)
+                SSH_HOST=$(grep 'Host ' ~/.ssh/config | awk '{print $2}' | fzf)
                 #change tmux windowname to hostname of current machine we connected to
                 if [ "z" != "z$TMUX" ]; then
-                        tmux rename-window $HOST
+                        tmux rename-window $SSH_HOST
                 fi
-                ssh -A $HOST 2>/dev/null
+                ssh -A $SSH_HOST 2>/dev/null
                 if [ "z" != "z$TMUX" ]; then
                         tmux rename-window $(hostname)
                 fi
