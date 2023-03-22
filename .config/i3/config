@@ -54,10 +54,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Resize window
-bindsym $mod+Left resize shrink width 5 px or 5 ppt
-bindsym $mod+Down resize grow height 5 px or 5 ppt
-bindsym $mod+Up resize shrink height 5 px or 5 ppt
-bindsym $mod+Right resize grow width 5 px or 5 ppt
+bindsym $mod+Left resize grow width 5 px or 5 ppt
+bindsym $mod+Down resize shrink height 5 px or 5 ppt
+bindsym $mod+Up resize grow height 5 px or 5 ppt
+bindsym $mod+Right resize shrink width 5 px or 5 ppt
 
 # Move focused window
 bindsym $mod+Shift+h move left 40
