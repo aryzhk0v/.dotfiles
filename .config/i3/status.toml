@@ -8,7 +8,7 @@ name = "awesome"
 
 [[block]]
 block = "custom"
-command = "curl ifconfig.io"
+command = "curl ifconfig.io 2>/dev/null || echo 'no internet access'"
 
 [[block]]
 block = "custom"
@@ -24,7 +24,6 @@ block = "time"
 interval = 60
 format = "%R   %a %d %b"
 on_click = "xdg-open 'https://calendar.google.com/calendar/u/0/r'"
-
 
 [[block]]
 block = "custom"
