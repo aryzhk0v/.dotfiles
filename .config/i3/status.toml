@@ -10,26 +10,14 @@ name = "awesome"
 block = "custom"
 command = "curl ifconfig.io"
 
-#[[block]]
-#block = "custom"
-#command = "curl 'wttr.in/Minsk?format=1'"
-#on_click = "xdg-open 'https://wttr.in/'"
-
 [[block]]
 block = "custom"
 command = "echo -n 'YD:'; yandex-disk status | head -n 1 | cut -d ':' -f 2"
-#on_click = "~/.scripts/yandex_disk_status.sh"
 on_click = "xdg-open 'https://disk.yandex.ru/client/disk'"
 
 [[block]]
 block = "sound"
 on_click = "/usr/bin/pavucontrol"
-
-[[block]]
-block = "net"
-device = "wlp1s0"
-format = ""
-on_click = "alacritty -e 'nmtui'"
 
 [[block]]
 block = "time"
