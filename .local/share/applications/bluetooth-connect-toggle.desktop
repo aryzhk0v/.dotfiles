@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Bluetooth toggle connect
+GenericName=Toggle connection to selected bluetooth device
+Icon=utilities-terminal
+Comment=Create a session of tmux
+Exec=sh -c "$HOME/.scripts/bluetooth-connect-toogle.sh"
+Terminal=false
+Type=Application
+Keywords=Terminal;Bluetooth;
+Categories=Utility;Bluetooth;
+StartupNotify=false
