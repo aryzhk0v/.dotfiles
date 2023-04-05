@@ -22,6 +22,9 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+if [ -d "/var/lib/snapd/snap/bin" ] ; then
+    PATH="/var/lib/snapd/snap/bin:$PATH"
+fi
 if [ -x "$(command -v keychain)" ]; then
     eval `keychain --eval --quiet id_rsa`
 fi
