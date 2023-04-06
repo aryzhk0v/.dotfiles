@@ -1,10 +1,10 @@
 [theme]
-name = "modern"
+theme = "modern"
 [theme.overrides]
 idle_bg = "#1c1c1c"
 idle_fg = "#e4e4e4"
 [icons]
-name = "awesome"
+icons = "awesome4"
 
 [[block]]
 block = "custom"
@@ -13,17 +13,24 @@ command = "curl ifconfig.io 2>/dev/null || echo 'no internet access'"
 [[block]]
 block = "custom"
 command = "echo -n 'YD:'; yandex-disk status | head -n 1 | cut -d ':' -f 2"
-on_click = "xdg-open 'https://disk.yandex.ru/client/disk'"
+[[block.click]]
+button = "left"
+cmd = "xdg-open 'https://disk.yandex.ru/client/disk'"
 
 [[block]]
 block = "sound"
-on_click = "/usr/bin/pavucontrol"
+[[block.click]]
+button = "left"
+cmd = "/usr/bin/pavucontrol"
 
 [[block]]
 block = "time"
 interval = 60
-format = "%R   %a %d %b"
-on_click = "xdg-open 'https://calendar.google.com/calendar/u/0/r'"
+[block.format]
+full = " $icon $timestamp.datetime(f:'%R   %a %d %b') "
+[[block.click]]
+button = "left"
+cmd = "xdg-open 'https://calendar.google.com/calendar/u/0/r'"
 
 [[block]]
 block = "custom"
