@@ -12,7 +12,7 @@ command = "curl ifconfig.io 2>/dev/null || echo 'no internet access'"
 interval = 5
 [[block.click]]
 button = "left"
-cmd = "~/.scripts/cf-toggle.sh"
+cmd = "~/.scripts/vpn-toggle.sh"
 
 [[block]]
 block = "custom"
