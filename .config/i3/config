@@ -249,7 +249,7 @@ bar {
         # Install ttf-font-awesome-4 from AUR for icons
         font pango:Terminus, FontAwesome 10
         position bottom
-        status_command i3status-rs ~/.config/i3/status.toml
+        status_command i3status-rs --never-pause ~/.config/i3/status.toml
         tray_output primary
 
     colors {
