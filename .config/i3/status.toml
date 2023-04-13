@@ -7,6 +7,16 @@ idle_fg = "#e4e4e4"
 icons = "awesome4"
 
 [[block]]
+block = "music"
+format = " $icon    {$combo.str(max_w:40)}"
+[block.theme_overrides]
+info_bg = "#1c1c1c"
+info_fg = "#e4e4e4"
+[[block.click]]
+button = "left"
+action = "play_pause"
+
+[[block]]
 block = "custom"
 command = "curl ifconfig.io 2>/dev/null || echo 'no internet access'"
 interval = 5
