@@ -1,4 +1,4 @@
-ss() {
+s() {
         #enable passing options
         while getopts ":v" opt; do
                 case ${opt} in
@@ -7,16 +7,27 @@ ss() {
                                 ;;
                 esac
         done
-        if [ $OPTIND -eq 1 ]; then
-                SSH_HOST=$(grep 'Host ' ~/.ssh/config | awk '{print $2}' | fzf)
-                #change tmux windowname to hostname of current machine we connected to
-                if [ "z" != "z$TMUX" ]; then
-                        tmux rename-window $SSH_HOST
-                fi
-                ssh -A $SSH_HOST 2>/dev/null
-                if [ "z" != "z$TMUX" ]; then
-                        tmux rename-window $(hostname)
-                fi
+        if !  [ -z "$1" ] && [ "$1" != "-v" ]
+        then
+            if [ "z" != "z$TMUX" ]; then
+                    tmux rename-window $1
+            fi
+            ssh -A $1 2>/dev/null
+            if [ "z" != "z$TMUX" ]; then
+                    tmux rename-window $(hostname)
+            fi
+        else
+            if [ $OPTIND -eq 1 ]; then
+                    SSH_HOST=$(grep 'Host ' ~/.ssh/config | awk '{print $2}' | fzf)
+                    #change tmux windowname to hostname of current machine we connected to
+                    if [ "z" != "z$TMUX" ]; then
+                            tmux rename-window $SSH_HOST
+                    fi
+                    ssh -A $SSH_HOST 2>/dev/null
+                    if [ "z" != "z$TMUX" ]; then
+                            tmux rename-window $(hostname)
+                    fi
+            fi
         fi
 }
 

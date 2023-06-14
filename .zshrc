@@ -110,3 +110,9 @@ export HISTSIZE=1000000000
 setopt INC_APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE
+export EDITOR=vim
+/usr/bin/keychain --nogui $HOME/.ssh/id_rsa 2> /dev/null
+source $HOME/.keychain/`hostname`-sh
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+    ta 0 > /dev/null 2>&1 || .scripts/tmux-session.sh >/dev/null 2>&1
+fi
