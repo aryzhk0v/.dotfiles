@@ -124,10 +124,20 @@ let g:tmux_navigator_disable_when_zoomed = 1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeAutoDeleteBuffer=1
 
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/work/notes/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_url_maxsave=0
+
 " Vimrunner
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
+let g:vtr_filetype_runner_overrides = {
+            \ 'ruby': 'load "{file}"',
+            \ }
+let g:VtrUseVtrMaps = 1
+au BufRead, *.rb nmap <F5> :VtrSendFile<cr>
 " }}}
 " Visual settings {{{
 
@@ -372,27 +382,20 @@ menu Encoding.ibm-866 :e ++enc=8bit-ibm866<CR>
 menu Encoding.utf-8 :e ++enc=2byte-utf-8 <CR>
 map <F9> :emenu Encoding.<TAB>
 " }}}
-let g:vimwiki_list = [{'path': '~/work/notes/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_url_maxsave=0
-
 set clipboard^=unnamed,unnamedplus
 set guifont=Terminus\ Medium\ 10
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+
 set noswapfile
+set undofile
 
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
-set undofile
 nnoremap <leader>t I* [ ]<space><esc>
 let g:insert_checkbox_prefix = '* '
 let g:checkbox_states = [' ', 'X']
-let g:vtr_filetype_runner_overrides = {
-            \ 'ruby': 'load "{file}"',
-            \ }
-let g:VtrUseVtrMaps = 1
 " vim:foldmethod=marker:foldlevel=0
