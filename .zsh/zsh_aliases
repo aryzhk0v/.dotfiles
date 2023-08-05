@@ -17,4 +17,4 @@ alias yu='yandex-disk unpublish'
 alias yt='youtube-dl -f best -ciw -o "%(upload_date)s-%(title)s.%(ext)s" -v' # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
 alias cds="cd ~/.scripts"
-alias fbi="openvpn3 config-import --config ~/work/profile-8.ovpn"
+alias fbi="openvpn3 config-import --config ~/profile-8.ovpn"
