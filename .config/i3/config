@@ -295,7 +295,7 @@ assign [class="Element"] 7
 for_window [class="GoldenDict"] move scratchpad
 for_window [instance="obsidian"] move scratchpad
 for_window [instance="toggleable"] move scratchpad
-for_window [class="Spotify"] move scratchpad
+for_window [class="foobar2000.exe"] move scratchpad
 
 #I'm not sure why it works but it lets guake to behave the way I want it
 #i.e as a regular terminal without fullscreen
