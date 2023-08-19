@@ -395,7 +395,7 @@ set undofile
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
-nnoremap <leader>t I* [ ]<space><esc>
-let g:insert_checkbox_prefix = '* '
 let g:checkbox_states = [' ', 'X']
+let g:insert_checkbox = '$'
+let g:insert_checkbox_prefix = ' '
 " vim:foldmethod=marker:foldlevel=0
