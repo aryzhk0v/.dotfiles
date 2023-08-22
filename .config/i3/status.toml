@@ -50,3 +50,7 @@ cmd = "xdg-open 'https://calendar.google.com/calendar/u/0/r'"
 block = "custom"
 command = "~/.scripts/layout.sh"
 interval = 1
+
+[[block]]
+block = "battery"
+missing_format = ""
