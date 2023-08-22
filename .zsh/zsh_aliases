@@ -18,3 +18,4 @@ alias yt='yt-dlp -f best -ciw -o "%(upload_date)s-%(title)s.%(ext)s" -v' # Downl
 alias yta='yt-dlp -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio' # Download only audio
 alias cds="cd ~/.scripts"
 alias fbi="openvpn3 config-import --config ~/profile-8.ovpn"
+alias yay="yay --removemake"
