@@ -5,6 +5,10 @@ default_border pixel 3
 
 show_marks no
 
+# make sure that opening links in scratchpad terminal (e.g via mutt or newsboat) doesn't steal focus
+focus_on_window_activation none
+no_focus [class="Zathura"]
+
 # Set default layout
 workspace_layout stacking
 
@@ -277,18 +281,18 @@ bindsym $mod+Shift+p exec --no-startup-id passmenu
 
 # Assign some programs their own workspaces
 assign [class="firefox"] 1
-assign [class="Zathura"] 3
+#assign [class="Zathura"] 3
 # If we leave just 'for_window' instruction workspace indicator won't show hint
-assign [class="okular"] 3
+#assign [class="okular"] 3
 # The following instruction is needed because okular doesn't move to workspace 1
 # automatically if it starts in fullscreen mode
-for_window [class="okular"] move workspace 3
+#for_window [class="okular"] move workspace 3
 # assign [title="newsboat"] 2
-for_window [instance="Devtools"] move workspace 4
+#for_window [instance="Devtools"] move workspace 4
 #assign [class="Telegram"] 8
-assign [class="Thunderbird"] 7
-assign [class="discord"] 7
-assign [class="Element"] 7
+#assign [class="Thunderbird"] 7
+#assign [class="discord"] 7
+#assign [class="Element"] 7
 #assign [class="mpv"] 9
 
 # Turn toggable apps to scratchpad workspaces
@@ -335,4 +339,5 @@ exec --no-startup-id yandex-disk start
 # The following line ensures that dunst is not disabled by i3_toggle_work_mode.sh
 exec --no-startup-id dunstctl set-paused false
 exec --no-startup-id nm-applet
+exec --no-startup-id ~/.scripts/tmux_create_session.sh
 #exec_always --no-startup-id ~/.scripts/auto_scratchpad.py True,,,toggleable,,

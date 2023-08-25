@@ -1,0 +1,4 @@
+text/html; firefox '%s' &; test=test -n "$DISPLAY"; needsterminal;
+text/plain; less %s
+image/*; sxiv %s
+application/pdf; zathura %s &
