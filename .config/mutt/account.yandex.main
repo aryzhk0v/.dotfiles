@@ -1,0 +1,20 @@
+# RECEIVE OPTIONS
+set imap_user = `PASSWORD_STORE_DIR=~/.password-store-personal pass mail/yandex/main/user`
+set imap_pass = `PASSWORD_STORE_DIR=~/.password-store-personal pass mail/yandex/main/pass`
+set imap_check_subscribed
+unset imap_passive
+set imap_keepalive = 900
+set mail_check     = 1800
+# REMOTE YANDEX FOLDERS
+set folder    = "~/.mail/yandex"
+set spoolfile = '+Inbox'
+set postponed = '+Drafts'
+set record    = '+Sent'
+set trash    = '+Trash'
+# SEND OPTIONS
+set ssl_starttls  = yes
+set ssl_force_tls = yes
+set realname      = 'Alexander Ryzhkov'
+set from          = `PASSWORD_STORE_DIR=~/.password-store-personal pass mail/yandex/main/user`
+set smtp_url      = "smtps://`PASSWORD_STORE_DIR=~/.password-store-personal pass mail/yandex/main/user`@smtp.yandex.ru:465/"
+set smtp_pass = `PASSWORD_STORE_DIR=~/.password-store-personal pass mail/yandex/main/pass`

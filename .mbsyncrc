@@ -1,0 +1,35 @@
+IMAPAccount yandex
+# Address to connect to
+Host imap.yandex.ru
+UserCMD "PASSWORD_STORE_DIR=~/.password-store-personal pass mail/yandex/main/user"
+PassCMD "PASSWORD_STORE_DIR=~/.password-store-personal pass mail/yandex/main/pass"
+# To store the password in an encrypted file use PassCmd instead of Pass
+# PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.mailpass.gpg"
+#
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore yandex-remote
+Account yandex
+
+MaildirStore yandex-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/yandex/
+Inbox ~/.mail/yandex/Inbox
+
+Channel yandex
+Far :yandex-remote:
+Near :yandex-local:
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+#Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Or include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
