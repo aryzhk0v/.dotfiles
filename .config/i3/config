@@ -6,7 +6,7 @@ default_border pixel 3
 show_marks no
 
 # make sure that opening links in scratchpad terminal (e.g via mutt or newsboat) doesn't steal focus
-focus_on_window_activation none
+focus_on_window_activation urgent
 no_focus [class="Zathura"]
 
 # Set default layout
@@ -109,6 +109,7 @@ bindsym $mod+o [urgent=latest] focus
 # Back forth jumping
 bindsym $mod+slash workspace back_and_forth
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+minus workspace back_and_forth
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -322,7 +323,6 @@ include ~/.config/i3/`hostname`.conf
 exec --no-startup-id xrdb ~/.Xresources
 #exec --no-startup-id goldendict
 exec --no-startup-id "numlockx on"
-exec --no-startup-id conky
 exec --no-startup-id redshift-gtk -l 54.65:29.13 -t 4200:3700
 exec --no-startup-id udiskie -asN &
 exec --no-startup-id unclutter -b
@@ -340,4 +340,5 @@ exec --no-startup-id yandex-disk start
 exec --no-startup-id dunstctl set-paused false
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/.scripts/tmux_create_session.sh
+exec --no-startup-id conky
 #exec_always --no-startup-id ~/.scripts/auto_scratchpad.py True,,,toggleable,,
