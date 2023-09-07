@@ -12,7 +12,7 @@ s() {
             if [ "z" != "z$TMUX" ]; then
                     tmux rename-window $1
             fi
-            ssh -A $1 2>/dev/null
+            ssh -A "$@" 2>/dev/null
             if [ "z" != "z$TMUX" ]; then
                     tmux rename-window $(hostname)
             fi

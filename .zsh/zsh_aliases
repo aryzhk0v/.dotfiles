@@ -19,5 +19,5 @@ alias yta='yt-dlp -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-a
 alias cds="cd ~/.scripts"
 alias fbi="openvpn3 config-import --config ~/profile-8.ovpn"
 alias yay="yay --removemake"
-alias mutt="neomutt"
+alias mutt="mbsync -a && neomutt"
 alias ppass="PASSWORD_STORE_DIR=~/.password-store-personal pass"
