@@ -118,3 +118,7 @@ fkill () {
 hsg () {
     history | grep $1
 }
+
+ssh-ignore-key () {
+    /usr/bin/ssh -o PasswordAuthentication=yes -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no "$@"
+}
