@@ -398,4 +398,6 @@ nmap <C-c>r <Plug>SetTmuxVars
 let g:checkbox_states = [' ', 'X']
 let g:insert_checkbox = '$'
 let g:insert_checkbox_prefix = ' '
+
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 " vim:foldmethod=marker:foldlevel=0

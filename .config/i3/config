@@ -157,6 +157,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+s move scratchpad
 # Toggle scratchpad
 #bindsym $mod+Shift+Return scratchpad show, resize set 1920 1040, move absolute position center
+bindsym $mod+Shift+Return scratchpad show
 #bindsym F1 scratchpad show
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)

@@ -12,6 +12,7 @@ alias cdg='cd ~/sync/gdrive'
 alias tls='tmux ls'
 alias tks='tmux kill-server'
 alias ys='yandex-disk status'
+alias yr='yandex-disk stop && yandex-disk start'
 alias yp='yandex-disk publish'
 alias yu='yandex-disk unpublish'
 alias yt='yt-dlp -f best -ciw -o "%(upload_date)s-%(title)s.%(ext)s" -v' # Download video link
