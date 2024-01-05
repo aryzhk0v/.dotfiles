@@ -122,3 +122,7 @@ hsg () {
 ssh-ignore-key () {
     /usr/bin/ssh -o PasswordAuthentication=yes -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no "$@"
 }
+
+pretty-csv () {
+    column -t -s, "$@"
+}

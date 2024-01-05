@@ -138,6 +138,7 @@ let g:vtr_filetype_runner_overrides = {
             \ }
 let g:VtrUseVtrMaps = 1
 au BufRead, *.rb nmap <F5> :VtrSendFile<cr>
+au BufRead, *.sh nmap <F5> :VtrSendFile<cr>
 " }}}
 " Visual settings {{{
 
