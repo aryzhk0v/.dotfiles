@@ -126,3 +126,11 @@ ssh-ignore-key () {
 pretty-csv () {
     column -t -s, "$@"
 }
+
+.cap () {
+   echo "$@" | tr a-z A-Z
+}
+
+.decap () {
+   echo "$@" | tr A-Z a-z
+}
