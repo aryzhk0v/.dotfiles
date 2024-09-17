@@ -217,9 +217,9 @@ bindsym XF86AudioPlay exec --no-startup-id "playerctl play-pause"
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl prev"
 #bindsym F7 exec --no-startup-id "mocp -G"
-bindsym $mod+F6 exec --no-startup-id "playerctl --player=firefox,spotify previous"
-bindsym $mod+F7 exec --no-startup-id "playerctl --player=firefox,spotify play-pause"
-bindsym $mod+F8 exec --no-startup-id "playerctl --player=firefox,spotify next"
+bindsym $mod+F6 exec --no-startup-id "playerctl --player=firefox,fooyin previous"
+bindsym $mod+F7 exec --no-startup-id "playerctl --player=firefox,fooyin play-pause"
+bindsym $mod+F8 exec --no-startup-id "playerctl --player=firefox,fooyin next"
 
 # Kill apps in a comfy way
 bindsym --release $mod+Shift+x exec --no-startup-id xkill
@@ -301,7 +301,7 @@ assign [class="firefox"] 1
 for_window [class="GoldenDict"] move scratchpad
 for_window [instance="obsidian"] move scratchpad
 for_window [instance="toggleable"] move scratchpad
-for_window [class="foobar2000.exe"] move scratchpad
+for_window [class="fooyin"] move scratchpad
 
 #I'm not sure why it works but it lets guake to behave the way I want it
 #i.e as a regular terminal without fullscreen
