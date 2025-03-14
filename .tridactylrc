@@ -1,11 +1,17 @@
 " General Settings
-set update.lastchecktime 1679042370710
+set update.lastchecktime 1741951522190
 set configversion 2.0
 set hintfiltermode vimperator-reflow
 set hintchars 543167890
+
+" Binds
 bind <A--> buffer #
 bind <A-/> buffer #
 bind <A-Tab> buffer #
+bind J tabnext
+bind j scrollline 10
+bind K tabprev
+unbind <C-e>
 
 " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 " vim: set filetype=tridactyl
